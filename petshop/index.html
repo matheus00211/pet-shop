@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetShop</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="PetShop Logo">
+    </div>
+    <nav>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#api-section">Buscar Animais</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <aside>
+    <h2>Catálogo</h2>
+    <ul>
+      <li><a href="#" data-item="brinquedos">Brinquedos</a></li>
+      <li><a href="#" data-item="racoes">Rações</a></li>
+      <li><a href="#" data-item="banhos">Tipos de Banhos</a></li>
+    </ul>
+    
+    <div class="form-container">
+      <h3>Adicionar Produto</h3>
+      <form id="productForm">
+        <label for="productName">Nome do Produto:</label>
+        <input type="text" id="productName" required>
+        <label for="productPrice">Preço do Produto:</label>
+        <input type="number" id="productPrice" required>
+        <label for="productDescription">Descrição:</label>
+        <textarea id="productDescription" required></textarea>
+        <label for="productDate">Data de Entrada:</label>
+        <input type="date" id="productDate" required>
+        <label for="storageType">Salvar em:</label>
+        <select id="storageType">
+          <option value="racoes">Rações</option>
+          <option value="brinquedos">Brinquedos</option>
+          <option value="banhos">Banhos</option>
+        </select>
+        <button type="submit">Adicionar Produto</button>
+      </form>
+    </div>
+  </aside>
+
+  <main>
+    <section id="api-section">
+      <h2>Buscar Animais Atendidos</h2>
+      <button id="fetchAnimals">Buscar Animais</button>
+      <ul id="animalList"></ul>
+    </section>
+
+    <section class="marquee-section">
+      <h2>Animais Atendidos</h2>
+      <div class="marquee">
+        <img src="animal1.jpg" alt="Animal 1">
+        <img src="animal2.jpg" alt="Animal 2">
+        <img src="animal3.jpg" alt="Animal 3">
+        <img src="animal4.jpg" alt="Animal 4">
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2024 PetShop - Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

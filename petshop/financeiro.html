@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financeiro - Petshop</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      padding: 20px;
+    }
+    
+    h1 {
+      color: #008000;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    
+    th, td {
+      padding: 12px;
+      text-align: left;
+    }
+    
+    th {
+      background-color: #008000;
+      color: white;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #e0ffe0;
+    }
+    
+    .total {
+      font-weight: bold;
+    }
+    
+  </style>
+</head>
+<body>
+
+<h1>Relatório Financeiro</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Funcionário</th>
+      <th>Item Vendido</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody id="tabelaFinanceiro">
+    <!-- Dados inseridos aqui -->
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="2" class="total">Total do Dia</td>
+      <td id="totalValor" class="total">R$ 0,00</td>
+    </tr>
+  </tfoot>
+</table>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const dados = JSON.parse(localStorage.getItem('vendaFuncionario'));
+    if (dados) {
+      const tabela = document.getElementById('tabelaFinanceiro');
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${dados.funcionario}</td>
+        <td>${dados.item}</td>
+        <td>R$ ${dados.valor}</td>
+      `;
+      tabela.appendChild(tr);
+      
+      // Calcular total
+      document.getElementById('totalValor').textContent = `R$ ${dados.valor}`;
+    }
+  });
+</script>
+
+</body>
+</html> 
